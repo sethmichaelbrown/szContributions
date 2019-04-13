@@ -1,0 +1,3 @@
+rootProject.name = 'sZContributions'
+
+include ':app'
