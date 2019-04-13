@@ -1,24 +1,23 @@
 // Resources
 import React, { Component } from 'react'
-import { StyleSheet } from 'react-native'
-import { Provider } from 'react-redux'
+import {
+  StyleSheet,
+  Text,
+  View
+} from 'react-native'
 
 // Components
-import SZContributions from './src/SZContributions'
-import store from './src/store'
+import Home from './containers/Home'
 
-
-class App extends Component {
+class SZContributions extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <SZContributions />
-      </Provider>
+      <Home />
     )
   }
 }
 
-export default App
+export default SZContributions
 
 const styles = StyleSheet.create({
   container: {
