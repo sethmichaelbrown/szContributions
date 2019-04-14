@@ -7,7 +7,6 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
 
 // Components
 
@@ -21,10 +20,8 @@ class SZContributions extends Component {
           placeholder='Enter Name'
 
         />
-        <TouchableOpacity>
-          onPress={() => alert('Clicked')}
+        <TouchableOpacity onPress={() => alert('Clicked')}>
           <View style={styles.button}>
-            <Ionicons name="md-add" size={30}/>
           </View>
         </TouchableOpacity>
       </View>
