@@ -22,7 +22,7 @@ class SZContributions extends Component {
         />
         <TouchableOpacity onPress={() => alert('Clicked')}>
           <View style={styles.button}>
-            <Icon name="fas-plus" size={30} color="#900" />
+            <Icon name="plus" size={30} />
           </View>
         </TouchableOpacity>
       </View>

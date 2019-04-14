@@ -10,9 +10,22 @@ import {
 import Home from './containers/Home'
 
 class SZContributions extends Component {
+  
+  state = {
+    events: [],
+    visibilityFilter: 'SHOW_ALL_EVENTS'
+  }
+  
   render() {
     return (
-      <Home />
+      <View style={styles.container}>
+        <Home />
+
+        <View>
+
+        </View>
+      </View>
+
     )
   }
 }
@@ -22,7 +35,6 @@ export default SZContributions
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
