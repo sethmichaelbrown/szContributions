@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { connect } from 'react-redux'
-
+import { addEventItem } from '../actions'
 // Components
 
 
@@ -20,7 +20,7 @@ class Home extends Component {
   }
 
   addEventItem = (text) => {
-    this.props.dispatch({ type: 'ADD_EVENT_ITEM', text })
+    this.props.dispatch(addEventItem(text))
     this.setState({ text: '' })
   }
 

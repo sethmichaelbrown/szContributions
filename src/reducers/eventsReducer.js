@@ -1,11 +1,9 @@
-let nextId = 0
-
 const eventsReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_EVENT_ITEM':
       return [
         ...state, {
-          id: nextId++,
+          id: action.id,
           text: action.text,
           completed: false
         }
