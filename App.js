@@ -1,33 +1,29 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+// Resources
+import React, { Component } from 'react'
+import { StyleSheet } from 'react-native'
+import { Provider } from 'react-redux'
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+// Components
+import SZContributions from './src/SZContributions'
+import store from './src/store'
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+class App extends Component {
 
-type Props = {};
-export default class App extends Component<Props> {
+  state = {
+    events: [{ id: 1, text: 'this is a test', completed: false }],
+    visibilityFilter: 'SHOW_ALL_EVENTS'
+  }
+  
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+      <Provider store={store}>
+        <SZContributions />
+      </Provider>
+    )
   }
 }
+
+export default App
 
 const styles = StyleSheet.create({
   container: {
@@ -40,10 +36,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+  }
+})

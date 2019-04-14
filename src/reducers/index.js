@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux'
-
-import events from './events'
+import {combineReducers} from 'redux'
+import eventsReducer from './eventsReducer'
+import visibilityFilterReducer from './visibilityFilterReducer'
 
 export default combineReducers({
-  events
+  eventsReducer,
+  visibilityFilterReducer
 })

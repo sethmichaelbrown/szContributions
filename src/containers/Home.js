@@ -7,24 +7,36 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-
+import Icon from 'react-native-vector-icons/FontAwesome'
+import { connect } from 'react-redux'
+import { addEventItem } from '../actions'
 // Components
 
 
-class SZContributions extends Component {
+class Home extends Component {
+
+  state = {
+    text: ''
+  }
+
+  addEventItem = (text) => {
+    this.props.dispatch(addEventItem(text))
+    this.setState({ text: '' })
+  }
+
   render() {
     return (
       <View style={styles.mainView}>
         <TextInput
+          onChangeText={(text) => this.setState({ text })}
+          value={this.state.text}
           style={styles.textInputs}
-          placeholder='Enter Name'
+          placeholder='Enter Event'
 
         />
-        <TouchableOpacity>
-          onPress={() => alert('Clicked')}
+        <TouchableOpacity onPress={() => this.addEventItem(this.state.text)}>
           <View style={styles.button}>
-            <Ionicons name="md-add" size={30}/>
+            <Icon name="plus" size={30} />
           </View>
         </TouchableOpacity>
       </View>
@@ -32,7 +44,7 @@ class SZContributions extends Component {
   }
 }
 
-export default SZContributions
+export default connect()(Home)
 
 const styles = StyleSheet.create({
   container: {
@@ -51,10 +63,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#eaeaea',
     height: 50,
     flex: 1,
-    padding: 5
+    padding: 5,
+    marginTop: 60
   },
   button: {
     backgroundColor: '#eaeaea',
-    height: 50
+    height: 50,
+    marginTop: 60,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
