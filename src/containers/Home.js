@@ -7,7 +7,7 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native'
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 // Components
 
 
@@ -22,6 +22,7 @@ class SZContributions extends Component {
         />
         <TouchableOpacity onPress={() => alert('Clicked')}>
           <View style={styles.button}>
+            <Icon name="fas-plus" size={30} color="#900" />
           </View>
         </TouchableOpacity>
       </View>
@@ -48,10 +49,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#eaeaea',
     height: 50,
     flex: 1,
-    padding: 5
+    padding: 5,
+    marginTop: 60
   },
   button: {
     backgroundColor: '#eaeaea',
-    height: 50
+    height: 50,
+    marginTop: 60,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
