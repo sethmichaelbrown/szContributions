@@ -5,24 +5,21 @@ import {
   Text,
   View
 } from 'react-native'
+import { connect } from 'react-redux'
 
 // Components
 import Home from './containers/Home'
+import VisibleEvents from './containers/VisibleEvents'
 
 class SZContributions extends Component {
-  
-  state = {
-    events: [],
-    visibilityFilter: 'SHOW_ALL_EVENTS'
-  }
-  
+
   render() {
     return (
       <View style={styles.container}>
         <Home />
 
         <View>
-
+          <VisibleEvents />
         </View>
       </View>
 
@@ -30,7 +27,7 @@ class SZContributions extends Component {
   }
 }
 
-export default SZContributions
+export default connect()(SZContributions)
 
 const styles = StyleSheet.create({
   container: {

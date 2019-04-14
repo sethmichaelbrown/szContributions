@@ -7,8 +7,13 @@ import { Provider } from 'react-redux'
 import SZContributions from './src/SZContributions'
 import store from './src/store'
 
-
 class App extends Component {
+
+  state = {
+    events: [{ id: 1, text: 'this is a test', completed: false }],
+    visibilityFilter: 'SHOW_ALL_EVENTS'
+  }
+  
   render() {
     return (
       <Provider store={store}>

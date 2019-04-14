@@ -8,19 +8,33 @@ import {
   TouchableOpacity
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { connect } from 'react-redux'
+
 // Components
 
 
-class SZContributions extends Component {
+class Home extends Component {
+
+  state = {
+    text: ''
+  }
+
+  addEventItem = (text) => {
+    this.props.dispatch({ type: 'ADD_EVENT_ITEM', text })
+    this.setState({ text: '' })
+  }
+
   render() {
     return (
       <View style={styles.mainView}>
         <TextInput
+          onChangeText={(text) => this.setState({ text })}
+          value={this.state.text}
           style={styles.textInputs}
-          placeholder='Enter Name'
+          placeholder='Enter Event'
 
         />
-        <TouchableOpacity onPress={() => alert('Clicked')}>
+        <TouchableOpacity onPress={() => this.addEventItem(this.state.text)}>
           <View style={styles.button}>
             <Icon name="plus" size={30} />
           </View>
@@ -30,7 +44,7 @@ class SZContributions extends Component {
   }
 }
 
-export default SZContributions
+export default connect()(Home)
 
 const styles = StyleSheet.create({
   container: {

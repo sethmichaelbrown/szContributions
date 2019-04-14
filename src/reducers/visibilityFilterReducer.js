@@ -1,3 +1,5 @@
-const visibilityFilter = (state='SHOW_ALL', action) => {
+const visibilityFilterReducer = (state='SHOW_ALL', action) => {
   return state
 }
+
+export default visibilityFilterReducer
